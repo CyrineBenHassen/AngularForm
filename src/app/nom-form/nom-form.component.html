@@ -1,0 +1,26 @@
+<div class="container">
+<form [formGroup]="nomFormGroup" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+    <label for="firstname" class="form-label">Firstname</label>
+    <input id="firstname" name="firstName" formControlName="firstName" type="text" class="form-control"
+    [class.is-invalid]="isInvalidAndTouchedOrDirty(nomFormGroup.controls.firstName)"/>
+    <small class="text-danger" *ngIf="isInvalidAndTouchedOrDirty(nomFormGroup.controls.firstName)">
+     <ng-container *ngIf="nomFormGroup.controls.firstName.hasError('required')">This Filed is required</ng-container>
+     <ng-container *ngIf="nomFormGroup.controls.firstName.hasError('minlength')">This Fiels must have at least 3 caracter</ng-container>
+     </small>
+    
+    </div>
+    <div class="mb-3">
+    <label for="lastname" class="form-label">Lastname</label>
+    <input id="lastname"  name="lastName" formControlName="lastName" type="text" class="form-control" 
+    [class.is-invalid]="nomFormGroup.controls.lastName.invalid "/>   
+    </div>
+    <div class="mb-3">
+    <label for="age" class="form-label">Age</label>
+    <input id="age"   name="age" formControlName="age" type="number" class="form-control"
+    [class.is-invalid]="nomFormGroup.controls.age.invalid" />
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

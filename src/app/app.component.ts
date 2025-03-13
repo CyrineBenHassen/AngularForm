@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demo';
+
+  message = "Hello from your parent";
+  msgEnfant='';
+  receiveMessage($event: string){
+    this.msgEnfant = $event;
+  }
 }
+
